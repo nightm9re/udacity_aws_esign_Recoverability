@@ -1,0 +1,47 @@
+[ec2-user@ip-10-1-11-99 ~]$ sudo mysql -h replicadb.cb7at3jw5m4s.us-west-2.rds.amazonaws.com -u root -p'root12345' 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 259
+Server version: 8.0.32 Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MySQL [(none)]> show databases
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| udacity            |
++--------------------+
+5 rows in set (0.017 sec)
+
+MySQL [(none)]> Use udacity;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MySQL [udacity]> show tables
+    -> ;
++-------------------+
+| Tables_in_udacity |
++-------------------+
+| user              |
++-------------------+
+1 row in set (0.002 sec)
+
+MySQL [udacity]> select * from user;
++------+----------+
+| id   | username |
++------+----------+
+| 1    | admin    |
++------+----------+
+1 row in set (0.001 sec)
+
+MySQL [udacity]> insert into user values('2','mod');
+ERROR 1290 (HY000): The MySQL server is running with the --read-only option so it cannot execute this statement
+MySQL [udacity]> Ctrl-C -- exit!
